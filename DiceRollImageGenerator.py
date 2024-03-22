@@ -22,6 +22,7 @@ def convertImageToByteArray(image: Image, fileType: str ="PNG") -> BytesIO:
     """
     imageByteArray = BytesIO()
     image.save(imageByteArray, format=fileType)
+    image.close()
     return imageByteArray
 
 def generateDieByteArray(rollValues: list, dieType: int, fileType: str ="PNG") -> BytesIO:
