@@ -1,3 +1,4 @@
+from io import BytesIO
 from PIL import Image, ImageDraw, ImageFont
 
 DIE_COORDINATES = [(10, 54), (116, 54), (222, 54), (328, 54)]
@@ -9,6 +10,33 @@ ASSET_LIBRARY_DIRECTORY = "./Assets/"
 BASE_IMAGE_DIMENSIONS = (434, 204)
 
 IMAGE_TEXT_FONT = ImageFont.truetype("./Fonts/Mitr/Mitr-Regular.ttf", 32)
+
+def convertImageToByteArray(image: Image, fileType: str ="PNG") -> BytesIO:
+    """
+    Converts a pillow Image into a Byte Array. fileType must match the target image format, with PNG set as the
+    default format. 
+
+    :param image: PIL Image to be converted into a Byte array
+    :param fileType: Desired image format of the PIL Image being converted, PNG by default.
+    :return: PIL Image Byte array as a io.BytesIO object
+    """
+    imageByteArray = BytesIO()
+    image.save(imageByteArray, format=fileType)
+    return imageByteArray
+
+def generateDieByteArray(rollValues: list, dieType: int, fileType: str ="PNG") -> BytesIO:
+    """
+    Generates a Byte array representing an image generated using the generateDieImage function. fileType must match
+    the target image format, with PNG set as the default format.
+
+    :param rollValues: list containing one to four int values within expected range of 1 to dieType.
+    :param dieType: int value representing a typical DnD die type ([2, 4, 6, 8, 10, 12, 20]).
+    :return: io.BytesIO object representing the PIL Image as a Byte array
+    :raise RollValueAndTypeError: where dieType is invalid or passed list does not meet requirements.
+    :raise FileNotFoundError: when asset cannot be found, must be named appropriately and located in the Asset directory (e.g. file path: "./Assets/D6_1.png")
+    """
+    return convertImageToByteArray(image=generateDieImage(rollValues,dieType), fileType=fileType)
+
 
 def generateDieImage(rollValues: list, dieType: int) -> Image:
     """
