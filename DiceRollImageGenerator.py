@@ -32,6 +32,7 @@ def generateDieByteArray(rollValues: list, dieType: int, fileType: str ="PNG") -
 
     :param rollValues: list containing one to four int values within expected range of 1 to dieType.
     :param dieType: int value representing a typical DnD die type ([2, 4, 6, 8, 10, 12, 20]).
+    :param fileType: Desired image format of the PIL Image, PNG by default.
     :return: io.BytesIO object representing the PIL Image as a Byte array
     :raise RollValueAndTypeError: where dieType is invalid or passed list does not meet requirements.
     :raise FileNotFoundError: when asset cannot be found, must be named appropriately and located in the Asset directory (e.g. file path: "./Assets/D6_1.png")
@@ -92,6 +93,19 @@ def generateD2Image(rollValues: list) -> Image:
     """
     return generateDieImage(rollValues, 2)
 
+def generateD2ByteArray(rollValues: list, fileType: str = "PNG") -> BytesIO:
+    """
+    Generates a Byte array representing an image generated using the generateD2Image function. fileType must match
+    the target image format, with PNG set as the default format.
+
+    :param rollValues: list containing one to four int values within expected range of 1 to 2.
+    :param fileType: Desired image format of the PIL Image, PNG by default.
+    :return: io.BytesIO object representing the PIL Image as a Byte array
+    :raise RollValueAndTypeError: where dieType is invalid or passed list does not meet requirements.
+    :raise FileNotFoundError: when asset cannot be found, must be named appropriately and located in the Asset directory (e.g. file path: "./Assets/D2_1.png")
+    """
+    return convertImageToByteArray(image=generateD2Image(rollValues), fileType=fileType)
+
 def generateD4Image(rollValues: list) -> Image:
     """
     Generates and returns a formatted 434 by 204 px image displaying dice roll values
@@ -105,6 +119,19 @@ def generateD4Image(rollValues: list) -> Image:
     :raise FileNotFoundError: where assets are missing or formatted incorrectly (e.g. file path: "./Assets/D4_1.png")
     """
     return generateDieImage(rollValues, 4)
+
+def generateD4ByteArray(rollValues: list, fileType: str = "PNG") -> BytesIO:
+    """
+    Generates a Byte array representing an image generated using the generateD4Image function. fileType must match
+    the target image format, with PNG set as the default format.
+
+    :param rollValues: list containing one to four int values within expected range of 1 to 4.
+    :param fileType: Desired image format of the PIL Image, PNG by default.
+    :return: io.BytesIO object representing the PIL Image as a Byte array
+    :raise RollValueAndTypeError: where dieType is invalid or passed list does not meet requirements.
+    :raise FileNotFoundError: when asset cannot be found, must be named appropriately and located in the Asset directory (e.g. file path: "./Assets/D4_1.png")
+    """
+    return convertImageToByteArray(image=generateD4Image(rollValues), fileType=fileType)
 
 def generateD6Image(rollValues: list) -> Image:
     """
@@ -120,6 +147,19 @@ def generateD6Image(rollValues: list) -> Image:
     """
     return generateDieImage(rollValues, 6)
 
+def generateD6ByteArray(rollValues: list, fileType: str = "PNG") -> BytesIO:
+    """
+    Generates a Byte array representing an image generated using the generateD6Image function. fileType must match
+    the target image format, with PNG set as the default format.
+
+    :param rollValues: list containing one to four int values within expected range of 1 to 6.
+    :param fileType: Desired image format of the PIL Image, PNG by default.
+    :return: io.BytesIO object representing the PIL Image as a Byte array
+    :raise RollValueAndTypeError: where dieType is invalid or passed list does not meet requirements.
+    :raise FileNotFoundError: when asset cannot be found, must be named appropriately and located in the Asset directory (e.g. file path: "./Assets/D6_1.png")
+    """
+    return convertImageToByteArray(image=generateD6Image(rollValues), fileType=fileType)
+
 def generateD8Image(rollValues: list) -> Image:
     """
     Generates and returns a formatted 434 by 204 px image displaying dice roll values
@@ -133,6 +173,19 @@ def generateD8Image(rollValues: list) -> Image:
     :raise FileNotFoundError: where assets are missing or formatted incorrectly (e.g. file path: "./Assets/D8_1.png")
     """
     return generateDieImage(rollValues, 8)
+
+def generateD8ByteArray(rollValues: list, fileType: str = "PNG") -> BytesIO:
+    """
+    Generates a Byte array representing an image generated using the generateD8Image function. fileType must match
+    the target image format, with PNG set as the default format.
+
+    :param rollValues: list containing one to four int values within expected range of 1 to 8.
+    :param fileType: Desired image format of the PIL Image, PNG by default.
+    :return: io.BytesIO object representing the PIL Image as a Byte array
+    :raise RollValueAndTypeError: where dieType is invalid or passed list does not meet requirements.
+    :raise FileNotFoundError: when asset cannot be found, must be named appropriately and located in the Asset directory (e.g. file path: "./Assets/D8_1.png")
+    """
+    return convertImageToByteArray(image=generateD8Image(rollValues), fileType=fileType)
 
 def generateD10Image(rollValues: list) -> Image:
     """
@@ -148,6 +201,19 @@ def generateD10Image(rollValues: list) -> Image:
     """
     return generateDieImage(rollValues, 10)
 
+def generateD10ByteArray(rollValues: list, fileType: str = "PNG") -> BytesIO:
+    """
+    Generates a Byte array representing an image generated using the generateD10Image function. fileType must match
+    the target image format, with PNG set as the default format.
+
+    :param rollValues: list containing one to four int values within expected range of 1 to 10.
+    :param fileType: Desired image format of the PIL Image, PNG by default.
+    :return: io.BytesIO object representing the PIL Image as a Byte array
+    :raise RollValueAndTypeError: where dieType is invalid or passed list does not meet requirements.
+    :raise FileNotFoundError: when asset cannot be found, must be named appropriately and located in the Asset directory (e.g. file path: "./Assets/D10_1.png")
+    """
+    return convertImageToByteArray(image=generateD10Image(rollValues), fileType=fileType)
+
 def generateD12Image(rollValues: list) -> Image:
     """
     Generates and returns a formatted 434 by 204 px image displaying dice roll values
@@ -162,6 +228,19 @@ def generateD12Image(rollValues: list) -> Image:
     """
     return generateDieImage(rollValues, 12)
 
+def generateD12ByteArray(rollValues: list, fileType: str = "PNG") -> BytesIO:
+    """
+    Generates a Byte array representing an image generated using the generateD12Image function. fileType must match
+    the target image format, with PNG set as the default format.
+
+    :param rollValues: list containing one to four int values within expected range of 1 to 12.
+    :param fileType: Desired image format of the PIL Image, PNG by default.
+    :return: io.BytesIO object representing the PIL Image as a Byte array
+    :raise RollValueAndTypeError: where dieType is invalid or passed list does not meet requirements.
+    :raise FileNotFoundError: when asset cannot be found, must be named appropriately and located in the Asset directory (e.g. file path: "./Assets/D12_1.png")
+    """
+    return convertImageToByteArray(image=generateD12Image(rollValues), fileType=fileType)
+
 def generateD20Image(rollValues: list) -> Image:
     """
     Generates and returns a formatted 434 by 204 px image displaying dice roll values
@@ -175,6 +254,19 @@ def generateD20Image(rollValues: list) -> Image:
     :raise FileNotFoundError: where assets are missing or formatted incorrectly (e.g. file path: "./Assets/D20_1.png")
     """
     return generateDieImage(rollValues, 20)
+
+def generateD20ByteArray(rollValues: list, fileType: str = "PNG") -> BytesIO:
+    """
+    Generates a Byte array representing an image generated using the generateD20Image function. fileType must match
+    the target image format, with PNG set as the default format.
+
+    :param rollValues: list containing one to four int values within expected range of 1 to 20.
+    :param fileType: Desired image format of the PIL Image, PNG by default.
+    :return: io.BytesIO object representing the PIL Image as a Byte array
+    :raise RollValueAndTypeError: where dieType is invalid or passed list does not meet requirements.
+    :raise FileNotFoundError: when asset cannot be found, must be named appropriately and located in the Asset directory (e.g. file path: "./Assets/D20_1.png")
+    """
+    return convertImageToByteArray(image=generateD20Image(rollValues), fileType=fileType)
 
 class RollValueAndTypeError(Exception):
     """
