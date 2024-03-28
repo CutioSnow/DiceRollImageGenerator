@@ -186,18 +186,14 @@ class RollValueAndTypeError(Exception):
     :param rollList: Passed list to be validated
     :param maxRoll: Expected maximum int value stored in the passed list
     """
-    valid:bool
-    listSize:int
-    maxExpectedRollValue:int
-    __isIntList__:bool = True
-    __isInRollMaxRange__:bool = True
-    __isAcceptedDieType__:bool = True
-    __acceptedDieTypes__:list = [2, 4, 6, 8, 10, 12, 20]
-
     def __init__(self, rollList: list, maxRoll:int, *args: object) -> None:
         super().__init__(self, *args)
         self.listSize = len(rollList)
         self.maxExpectedRollValue = maxRoll
+        self.acceptedDieTypes:list = [2, 4, 6, 8, 10, 12, 20]
+        self.__isIntList__:bool = True
+        self.__isInRollMaxRange__:bool = True
+        self.__isAcceptedDieType__:bool = True
         self.valid = self.__isValidList__(rollList, maxRoll)
 
     def __str__(self) -> str:
@@ -219,7 +215,7 @@ class RollValueAndTypeError(Exception):
         :param dieMaxRoll: maximum int value expected within the list. Range 1 to dieMaxRoll (inclusive).
         :return: a boolean value
         """
-        if dieMaxRoll in self.__acceptedDieTypes__:
+        if dieMaxRoll in self.acceptedDieTypes:
             if (len(list) <= 4 and all(isinstance(i,int) for i in list)):
                 for i in list:
                     if i < 1 or i > dieMaxRoll:
