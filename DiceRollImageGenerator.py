@@ -112,9 +112,7 @@ class BoundedImage():
     
     def close(self):
         for i in self.die_assets:
-            print(f"Closing {self.die_assets[i].toString()}")
             self.die_assets[i].close()
-        print(self.toString())
         self.image.close()
         pass
 
