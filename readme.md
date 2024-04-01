@@ -11,20 +11,20 @@ All default die assets were designed in Figma and are free to use. For the purpo
 ![Discord Sample](.readme/Sample.png)
 
 ## Generated Samples
-### Generated using `generateD4Image([1,2,3,4])`:
+### Sample D4 image:
 ![D4 Concept Image](.readme/conceptD4.png)
 
-### Generated using `generateD6Image([3,4,5,6])`:
+### Sample D6 image:
 ![D6 Concept Image](.readme/conceptD6.png)
 
-### Generated using `generateD8Image([5,6,7,8])`:
+### Sample D8 image:
 ![D8 Concept Image](.readme/conceptD8.png)
 
-### Generated using `generateD10Image([7,8,9,10])`:
+### Sample D10 image:
 ![D10 Concept Image](.readme/conceptD10.png)
 
-### Generated using `generateD12Image([9,10,11,12])`:
+### Sample D12 image:
 ![D12 Concept Image](.readme/conceptD12.png)
 
-### Generated using `generateD20Image([17,18,19,20])`:
+### Sample D20 image:
 ![D20 Concept Image](.readme/conceptD20.png)
